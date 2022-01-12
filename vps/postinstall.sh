@@ -13,7 +13,7 @@ golang_package="https://go.dev/dl/go1.17.6.linux-amd64.tar.gz"
 amass="go get -v github.com/OWASP/Amass/v3/..."
 anew="go get -u github.com/tomnomnom/anew"
 antiburl="https://raw.githubusercontent.com/tomnomnom/hacks/master/anti-burl/main.go"
-arjun="pip3 install arjun"
+arjun="pip install arjun"
 assetfinder="go get -u github.com/tomnomnom/assetfinder"
 axiom="bash <(curl -s https://raw.githubusercontent.com/pry0cc/axiom/master/interact/axiom-configure)"
 chaos_client="go get -v github.com/projectdiscovery/chaos-client/cmd/chaos"
@@ -27,7 +27,7 @@ gau="go install github.com/lc/gau/v2/cmd/gau@latest"
 gauplus="go get -u -v github.com/bp0lr/gauplus"
 gf="go get -u github.com/tomnomnom/gf"
 gitdorker="git clone https://github.com/obheda12/GitDorker.git ${TOOLS_DIR}/gitdorker"
-gitdumper="pip3 install git-dumper"
+gitdumper="pip install git-dumper"
 gitscanner="git clone https://github.com/HightechSec/git-scanner ${TOOLS_DIR}/gitscanner"
 githubsearch="git clone https://github.com/gwen001/github-search.git ${TOOLS_DIR}/githubsearch"
 gospider="go get -u github.com/jaeles-project/gospider"
@@ -58,7 +58,7 @@ shuffledns="go install -v github.com/projectdiscovery/shuffledns/cmd/shuffledns@
 sub404="git clone https://github.com/r3curs1v3-pr0xy/sub404.git ${TOOLS_DIR}/sub404"
 subfinder="go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
 subjs="go install github.com/lc/subjs@latest"
-turbosearch="pip3 install git+https://github.com/helviojunior/turbosearch.git#egg=turbosearch"
+turbosearch="pip install git+https://github.com/helviojunior/turbosearch.git#egg=turbosearch"
 unfurl="go get -u github.com/tomnomnom/unfurl"
 waybackurls="go get github.com/tomnomnom/waybackurls"
 wpscam="gem install wpscan"
@@ -78,7 +78,7 @@ mkdir "${TOOLS_DIR}"
 ## Pre-Req
 echo -e "====== Starting apt process - ${DATE} ======\n" >> ${LOG_FILE} 2>&1
 { apt update
-  apt install git vim wget curl perl gcc jq htop zsh default-jre net-tools locate gzip zip ruby-dev tmux p7zip libpcap-dev python3-pip python3-is-python3 snap nmap sqlmap john grepcidr masscan brutespray prips fonts-powerline -y 
+  apt install git vim wget curl perl gcc jq htop zsh default-jre net-tools locate gzip zip ruby-dev tmux p7zip libpcap-dev python3-pip snap nmap sqlmap john grepcidr masscan brutespray prips fonts-powerline -y 
 } >> ${LOG_FILE} 2>&1
 echo -e "====== Ending apt process - ${DATE} ======\n" >> ${LOG_FILE} 2>&1
 
@@ -110,17 +110,17 @@ echo "====== Starting packages install - ${DATE} ======" >> ${LOG_FILE} 2>&1
     $chaos_client
     wget $collector -O /tmp/collector.py && chmod +x /tmp/collector.py && sed -i '#!/usr/bin/env python3' /tmp/collector.py && mv /tmp/collector.py /usr/local/bin/collector.py
     $dalfox
-    $dirsearch && cd ${TOOLS_DIR}/dirsearch && pip3 install -r requirements.txt && chmod +x dirsearch.py
+    $dirsearch && cd ${TOOLS_DIR}/dirsearch && pip install -r requirements.txt && chmod +x dirsearch.py
     $dnsx
     $ffuf
     wget $findomain -O /tmp/findomain && chmod +x /tmp/findomain && mv findomain /usr/local/bin/
     $gau
     $gauplus
     $gf
-    $gitdorker && cd ${TOOLS_DIR}/gitdorker && pip3 install -r requirements.txt && chmod +x GitDorker.py
+    $gitdorker && cd ${TOOLS_DIR}/gitdorker && pip install -r requirements.txt && chmod +x GitDorker.py
     $gitdumper
     $gitscanner && chmod +x ${TOOLS_DIR}/gitscanner/gitscanner.sh
-    $githubsearch && cd ${TOOLS_DIR}/githubsearch && pip3 install -r requirements3.txt && chmod +x github-subdomains.py
+    $githubsearch && cd ${TOOLS_DIR}/githubsearch && pip install -r requirements3.txt && chmod +x github-subdomains.py
     $gospider
     $gowitness
     $hakrawler
@@ -131,9 +131,9 @@ echo "====== Starting packages install - ${DATE} ======" >> ${LOG_FILE} 2>&1
     $interactsh_server
     $nikto
     $jaeles
-    $jsscanner && cd ${TOOLS_DIR}/jsscanner && pip3 install -r requirements.txt && chmod +x JSScanner.py
+    $jsscanner && cd ${TOOLS_DIR}/jsscanner && pip install -r requirements.txt && chmod +x JSScanner.py
     wget $kiterunner -O /tmp/kiterunner.tar.gz && tar -xf /tmp/kiterunner.tar.gz -C /usr/local/bin
-    $linkfinder && cd ${TOOLS_DIR}/linkfinder && pip3 install -r requirements.txt && python3 setup.py install
+    $linkfinder && cd ${TOOLS_DIR}/linkfinder && pip install -r requirements.txt && python setup.py install
     $mapcidr
     $massdns && cd  ${TOOLS_DIR}/massdns && make && chmod +x ${TOOLS_DIR}/massdns/bin/massdns
     $metabigor
@@ -142,11 +142,11 @@ echo "====== Starting packages install - ${DATE} ======" >> ${LOG_FILE} 2>&1
     $notify
     $nuclei
     $nuclei_templates
-    $paramspider && cd ${TOOLS_DIR}/paramspider && pip3 install -r requirements.txt && chmod +x paramspider.py
+    $paramspider && cd ${TOOLS_DIR}/paramspider && pip install -r requirements.txt && chmod +x paramspider.py
     $proxify
     $qsreplace
     $shuffledns
-    $sub404 && cd ${TOOLS_DIR}/sub404 && pip3 install -r requirements.txt && chmod +x sub404.py
+    $sub404 && cd ${TOOLS_DIR}/sub404 && pip install -r requirements.txt && chmod +x sub404.py
     $subfinder
     $subjs
     $turbosearch
