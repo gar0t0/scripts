@@ -17,6 +17,7 @@ arjun="pip3 install arjun"
 assetfinder="go get -u github.com/tomnomnom/assetfinder"
 axiom="bash <(curl -s https://raw.githubusercontent.com/pry0cc/axiom/master/interact/axiom-configure)"
 chaos_client="go get -v github.com/projectdiscovery/chaos-client/cmd/chaos"
+collector="https://raw.githubusercontent.com/m4ll0k/BBTz/master/collector.py"
 dalfox="go install github.com/hahwul/dalfox/v2@latest"
 dirsearch="git clone https://github.com/maurosoria/dirsearch.git ${TOOLS_DIR}/dirsearch"
 dnsx="go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest"
@@ -40,12 +41,27 @@ interactsh_server="go install -v github.com/projectdiscovery/interactsh/cmd/inte
 nikto="git clone https://github.com/sullo/nikto ${TOOLS_DIR}/nikto"
 jaeles="go get github.com/jaeles-project/jaeles"
 jsscanner="git clone https://github.com/0x240x23elu/JSScanner.git ${TOOLS_DIR}/jsscanner"
+kiterunner="https://github.com/assetnote/kiterunner/releases/download/v1.0.2/kiterunner_1.0.2_linux_amd64.tar.gz"
+linkfinder="git clone https://github.com/GerbenJavado/LinkFinder.git ${TOOLS_DIR}/linkfinder"
+mapcidr="go install github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest"
+massdns="git clone https://github.com/blechschmidt/massdns.git ${TOOLS_DIR}/massdns"
+metabigor="go install github.com/j3ssie/metabigor@latest"
+metasploit="https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb"
+naabu="go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest"
 notify="go install -v github.com/projectdiscovery/notify/cmd/notify@latest"
 nuclei="go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
 nuclei_templates="git clone https://github.com/projectdiscovery/nuclei-templates.git ${TOOLS_DIR}/nuclei-templates"
+paramspider="git clone https://github.com/devanshbatham/ParamSpider ${TOOLS_DIR}/paramspider"
 proxify="go install -v github.com/projectdiscovery/proxify/cmd/proxify@latest"
+qsreplace="go get -u github.com/tomnomnom/qsreplace"
+shuffledns="go install -v github.com/projectdiscovery/shuffledns/cmd/shuffledns@latest"
+sub404="git clone https://github.com/r3curs1v3-pr0xy/sub404.git ${TOOLS_DIR}/sub404"
 subfinder="go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
+subjs="go install github.com/lc/subjs@latest"
+turbosearch="pip3 install git+https://github.com/helviojunior/turbosearch.git#egg=turbosearch"
+unfurl="go get -u github.com/tomnomnom/unfurl"
 waybackurls="go get github.com/tomnomnom/waybackurls"
+wpscam="gem install wpscan"
 
 ## Start script
 echo -e "====== Starting post install Script - ${DATE} ======\nCheck all tools after install" >> ${LOG_FILE} 2>&1
@@ -92,6 +108,7 @@ echo "====== Starting packages install - ${DATE} ======" >> ${LOG_FILE} 2>&1
     $assetfinder
     $axiom
     $chaos_client
+    wget $collector -O /tmp/collector.py && chmod +x /tmp/collector.py && sed -i '#!/usr/bin/env python3' /tmp/collector.py && mv /tmp/collector.py /usr/local/bin/collector.py
     $dalfox
     $dirsearch && cd ${TOOLS_DIR}/dirsearch && pip3 install -r requirements.txt && chmod +x dirsearch.py
     $dnsx
@@ -115,12 +132,27 @@ echo "====== Starting packages install - ${DATE} ======" >> ${LOG_FILE} 2>&1
     $nikto
     $jaeles
     $jsscanner && cd ${TOOLS_DIR}/jsscanner && pip3 install -r requirements.txt && chmod +x JSScanner.py
+    wget $kiterunner -O /tmp/kiterunner.tar.gz && tar -xf /tmp/kiterunner.tar.gz -C /usr/local/bin
+    $linkfinder && cd ${TOOLS_DIR}/linkfinder && pip3 install -r requirements.txt && python3 setup.py install
+    $mapcidr
+    $massdns && cd  ${TOOLS_DIR}/massdns && make && chmod +x ${TOOLS_DIR}/massdns/bin/massdns
+    $metabigor
+    curl $metasploit > /tmp/msfinstall && chmod 755 /tmp/msfinstall && /tmp/msfinstall
+    $naabu
     $notify
     $nuclei
     $nuclei_templates
+    $paramspider && cd ${TOOLS_DIR}/paramspider && pip3 install -r requirements.txt && chmod +x paramspider.py
     $proxify
+    $qsreplace
+    $shuffledns
+    $sub404 && cd ${TOOLS_DIR}/sub404 && pip3 install -r requirements.txt && chmod +x sub404.py
     $subfinder
+    $subjs
+    $turbosearch
+    $unfurl
     $waybackurls
+    $wpscam
 } >> ${LOG_FILE} 2>&1
 
 ## Create aliases
@@ -130,6 +162,10 @@ ln -s ${TOOLS_DIR}/gitdorker/GitDorker.py /usr/local/bin/gitdorker
 ln -s ${TOOLS_DIR}/gitscanner/gitscanner.sh /usr/local/bin/gitscanner
 ln -s ${TOOLS_DIR}/githubsearch/github-subdomains.py /usr/local/bin/github-subdomains
 ln -s ${TOOLS_DIR}/jsscanner/JSScanner.py /usr/local/bin/jsscanner
+ln -s ${TOOLS_DIR}/linkfinder/linkfinder.py /usr/local/bin/linkfinder
+ln -s ${TOOLS_DIR}/massdns/bin/massdns /usr/local/bin/massdns
+ln -s ${TOOLS_DIR}/paramspider/paramspider.py /usr/local/bin/paramspider
+ln -s ${TOOLS_DIR}/sub404/sub404.py /usr/local/bin/sub404
 
 echo "====== Ending packages install - ${DATE} ======" >> ${LOG_FILE} 2>&1
 
