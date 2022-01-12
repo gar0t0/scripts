@@ -113,7 +113,7 @@ echo "====== Starting packages install - ${DATE} ======" >> ${LOG_FILE} 2>&1
     $dirsearch && cd ${TOOLS_DIR}/dirsearch && pip install -r requirements.txt && chmod +x dirsearch.py
     $dnsx
     $ffuf
-    wget $findomain -O /tmp/findomain && chmod +x /tmp/findomain && mv findomain /usr/local/bin/
+    wget $findomain -O /tmp/findomain && chmod +x /tmp/findomain && mv /tmp/findomain /usr/local/bin/
     $gau
     $gauplus
     $gf
@@ -133,11 +133,11 @@ echo "====== Starting packages install - ${DATE} ======" >> ${LOG_FILE} 2>&1
     $jaeles
     $jsscanner && cd ${TOOLS_DIR}/jsscanner && pip install -r requirements.txt && chmod +x JSScanner.py
     wget $kiterunner -O /tmp/kiterunner.tar.gz && tar -xf /tmp/kiterunner.tar.gz -C /usr/local/bin
-    $linkfinder && cd ${TOOLS_DIR}/linkfinder && pip install -r requirements.txt && python setup.py install
+    $linkfinder && cd ${TOOLS_DIR}/linkfinder && pip install -r requirements.txt && python3 setup.py install
     $mapcidr
     $massdns && cd  ${TOOLS_DIR}/massdns && make && chmod +x ${TOOLS_DIR}/massdns/bin/massdns
     $metabigor
-    curl $metasploit > /tmp/msfinstall && chmod 755 /tmp/msfinstall && /tmp/msfinstall
+    curl $metasploit > /tmp/msfinstall && chmod 755 /tmp/msfinstall && cd /tmp && ./msfinstall && msfupdate && rm -f /tmp/msfinstall
     $naabu
     $notify
     $nuclei
