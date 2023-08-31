@@ -7,39 +7,39 @@
 LOG_FILE="/root/postinstall.log"
 TOOLS_DIR="/root/tools"
 DATE=$(date "+%Y%m%d - %H:%m:%S")
-golang_package="https://go.dev/dl/go1.17.6.linux-amd64.tar.gz"
+golang_package="https://go.dev/dl/go1.21.0.linux-amd64.tar.gz"
 
 ## Packages
-amass="go get -v github.com/OWASP/Amass/v3/..."
-anew="go get -u github.com/tomnomnom/anew"
+amass="go install -v github.com/owasp-amass/amass/v4/...@master"
+anew="go get -u github.com/tomnomnom/anew@latest"
 antiburl="https://raw.githubusercontent.com/tomnomnom/hacks/master/anti-burl/main.go"
 arjun="pip install arjun"
 assetfinder="go get -u github.com/tomnomnom/assetfinder"
 axiom="bash <(curl -s https://raw.githubusercontent.com/pry0cc/axiom/master/interact/axiom-configure)"
-chaos_client="go get -v github.com/projectdiscovery/chaos-client/cmd/chaos"
+chaos_client="go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest"
 collector="https://raw.githubusercontent.com/m4ll0k/BBTz/master/collector.py"
 dalfox="go install github.com/hahwul/dalfox/v2@latest"
 dirsearch="git clone https://github.com/maurosoria/dirsearch.git ${TOOLS_DIR}/dirsearch"
 dnsx="go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest"
-ffuf="go get -u github.com/ffuf/ffuf"
+ffuf="go install github.com/ffuf/ffuf/v2@latest"
 findomain="https://github.com/findomain/findomain/releases/latest/download/findomain-linux"
 gau="go install github.com/lc/gau/v2/cmd/gau@latest"
-gauplus="go get -u -v github.com/bp0lr/gauplus"
+gauplus="go install github.com/bp0lr/gauplus@latest"
 gf="go get -u github.com/tomnomnom/gf"
 gitdorker="git clone https://github.com/obheda12/GitDorker.git ${TOOLS_DIR}/gitdorker"
 gitdumper="pip install git-dumper"
 gitscanner="git clone https://github.com/HightechSec/git-scanner ${TOOLS_DIR}/gitscanner"
 githubsearch="git clone https://github.com/gwen001/github-search.git ${TOOLS_DIR}/githubsearch"
-gospider="go get -u github.com/jaeles-project/gospider"
-gowitness="go get -u github.com/sensepost/gowitness"
+gospider="go install github.com/jaeles-project/gospider@latest"
+gowitness="go install github.com/sensepost/gowitness@latest"
 hakrawler="go install github.com/hakluke/hakrawler@latest"
 haktrails="go install -v github.com/hakluke/haktrails@latest"
-httprobe="go get -u github.com/tomnomnom/httprobe"
+httprobe="go install github.com/tomnomnom/httprobe@latest"
 httpx="go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest"
 interactsh_client="go install -v github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest"
 interactsh_server="go install -v github.com/projectdiscovery/interactsh/cmd/interactsh-server@latest"
 nikto="git clone https://github.com/sullo/nikto ${TOOLS_DIR}/nikto"
-jaeles="go get github.com/jaeles-project/jaeles"
+jaeles="go install github.com/jaeles-project/jaeles@latest"
 jsscanner="git clone https://github.com/0x240x23elu/JSScanner.git ${TOOLS_DIR}/jsscanner"
 kiterunner="https://github.com/assetnote/kiterunner/releases/download/v1.0.2/kiterunner_1.0.2_linux_amd64.tar.gz"
 linkfinder="git clone https://github.com/GerbenJavado/LinkFinder.git ${TOOLS_DIR}/linkfinder"
@@ -53,14 +53,14 @@ nuclei="go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
 nuclei_templates="git clone https://github.com/projectdiscovery/nuclei-templates.git ${TOOLS_DIR}/nuclei-templates"
 paramspider="git clone https://github.com/devanshbatham/ParamSpider ${TOOLS_DIR}/paramspider"
 proxify="go install -v github.com/projectdiscovery/proxify/cmd/proxify@latest"
-qsreplace="go get -u github.com/tomnomnom/qsreplace"
+qsreplace="go install github.com/tomnomnom/qsreplace@latest"
 shuffledns="go install -v github.com/projectdiscovery/shuffledns/cmd/shuffledns@latest"
 sub404="git clone https://github.com/r3curs1v3-pr0xy/sub404.git ${TOOLS_DIR}/sub404"
 subfinder="go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
 subjs="go install github.com/lc/subjs@latest"
 turbosearch="pip install git+https://github.com/helviojunior/turbosearch.git#egg=turbosearch"
-unfurl="go get -u github.com/tomnomnom/unfurl"
-waybackurls="go get github.com/tomnomnom/waybackurls"
+unfurl="go install github.com/tomnomnom/unfurl@latest"
+waybackurls="go install github.com/tomnomnom/waybackurls@latest"
 wpscam="gem install wpscan"
 
 ## Start script
@@ -156,7 +156,7 @@ echo "====== Starting packages install - ${DATE} ======" >> ${LOG_FILE} 2>&1
 } >> ${LOG_FILE} 2>&1
 
 ## Create aliases
-ln -s ${TOOLS_DIR}/nikto/program/nikto.py /usr/local/bin/nikto
+ln -s ${TOOLS_DIR}/nikto/program/nikto.pl /usr/local/bin/nikto
 ln -s ${TOOLS_DIR}/dirsearch/dirsearch.py /usr/local/bin/dirsearch
 ln -s ${TOOLS_DIR}/gitdorker/GitDorker.py /usr/local/bin/gitdorker
 ln -s ${TOOLS_DIR}/gitscanner/gitscanner.sh /usr/local/bin/gitscanner
